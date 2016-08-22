@@ -26,7 +26,7 @@ public class Main {
      * @param ip - IP-адрес в виде строки
      * @return - возвращает значение Long
      */
-    private static long ipToLong(String ip) {
+    public static long ipToLong(String ip) {
         String[] ipSplit = ip.split("\\.");
         long longIp = 0;
         for (int i = 0; i < ipSplit.length; i++) {
@@ -40,7 +40,7 @@ public class Main {
      * @param longIp - Long-значение
      * @return - строка IP
      */
-    private static String longToIp(long longIp) {
+    public static String longToIp(long longIp) {
         return ((longIp >> 24) & 0xFF) + "." +
                 ((longIp >> 16) & 0xFF) + "." +
                 ((longIp >> 8) & 0xFF) + "." +
