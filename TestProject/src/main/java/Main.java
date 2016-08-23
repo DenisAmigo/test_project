@@ -38,7 +38,7 @@ public class Main {
     /**
      * Данный метод преобразует Long в строку IP-адреса
      * @param longIp - Long-значение
-     * @return - строка IP
+     * @return - строковый IP-адрес
      */
     public static String longToIp(long longIp) {
         return ((longIp >> 24) & 0xFF) + "." +
@@ -47,6 +47,10 @@ public class Main {
                 (longIp & 0xFF);
     }
 
+    /**
+     * Проверка на регулярное выражение по полю-маске
+     * @param ip - строковый IP-адрес
+     */
     private static void checkIPValues(String ip) {
         Pattern p = Pattern.compile(IP_PATTERN);
         Matcher m = p.matcher(ip);
@@ -56,9 +60,18 @@ public class Main {
         }
     }
 
+    /**
+     * Данный метод делает всевозможные проверки введенного диапазона согласно условию задачи
+     * @param ip1 - Long-значение IP-адреса нижней границы диапазона
+     * @param ip2 - Long-значение IP-адреса верхней границы диапазона
+     */
     private static void checkCorrectRange(Long ip1, Long ip2) {
         if (ip1 >= ip2) {
             System.out.println("Верхняя граница не может быть меньше или равна нижней границе!");
+            System.exit(0);
+        }
+        if (Math.abs(ip2 - ip1) == 1) {
+            System.out.println("Между указанными адресами нет значений!");
             System.exit(0);
         }
     }
