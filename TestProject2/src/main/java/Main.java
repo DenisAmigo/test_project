@@ -13,7 +13,7 @@ public class Main {
         final List<String> phones = getPhonesByName(name);
         if (phones != null) {
             for (int i = 0; i < phones.size(); i++) {
-                System.out.println(i + 1 + ". " + phones.get(i));
+                System.out.println((i + 1) + ". " + phones.get(i));
             }
         } else {
             System.out.println("Такого абонента в БД нет!");
@@ -21,6 +21,12 @@ public class Main {
     }
 
     // По-хорошему, нужно использовать MultiMap из библиотеки guava, но постановка задачи другая
+
+    /**
+     * Помещает запись в книгу в порядке "ФИО -> список"
+     * @param name - ФИО
+     * @param numbers - список телефонов
+     */
     private static void addAll(String name, List<String> numbers) {
         phoneBook.put(name, numbers);
     }
